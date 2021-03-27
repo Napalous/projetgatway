@@ -1,0 +1,32 @@
+{
+  "projetgatewayApp": {
+    "microservicegestionBovin": {
+      "home": {
+        "title": "Bovins",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bovin",
+        "createOrEditLabel": "Create or edit a Bovin",
+        "notFound": "No Bovins found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bovin {{ id }}?"
+      },
+      "detail": {
+        "title": "Bovin"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "sexe": "Sexe",
+      "datenaissance": "Datenaissance",
+      "race": "Race",
+      "typeBovin": "Type Bovin"
+    }
+  },
+  "microservicegestionApp": {
+    "microservicegestionBovin": {
+      "created": "A new Bovin is created with identifier {{ param }}",
+      "updated": "A Bovin is updated with identifier {{ param }}",
+      "deleted": "A Bovin is deleted with identifier {{ param }}"
+    }
+  }
+}

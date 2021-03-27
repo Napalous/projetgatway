@@ -1,0 +1,29 @@
+{
+  "projetgatewayApp": {
+    "microserviceproductionFicheMedical": {
+      "home": {
+        "title": "Fiche Medicals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fiche Medical",
+        "createOrEditLabel": "Create or edit a Fiche Medical",
+        "notFound": "No Fiche Medicals found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Fiche Medical {{ id }}?"
+      },
+      "detail": {
+        "title": "Fiche Medical"
+      },
+      "id": "ID",
+      "observation": "Observation",
+      "dateconsultation": "Dateconsultation"
+    }
+  },
+  "microserviceproductionApp": {
+    "microserviceproductionFicheMedical": {
+      "created": "A new Fiche Medical is created with identifier {{ param }}",
+      "updated": "A Fiche Medical is updated with identifier {{ param }}",
+      "deleted": "A Fiche Medical is deleted with identifier {{ param }}"
+    }
+  }
+}

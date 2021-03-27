@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="race">
+      <h2 data-cy="raceDetailsHeading"><span jhiTranslate="projetgatewayApp.microservicegestionRace.detail.title">Race</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ race.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetgatewayApp.microservicegestionRace.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ race.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetgatewayApp.microservicegestionRace.image">Image</span></dt>
+        <dd>
+          <div *ngIf="race.image">
+            <a (click)="openFile(race.image, race.imageContentType)">
+              <img [src]="'data:' + race.imageContentType + ';base64,' + race.image" style="max-width: 100%" alt="race image" />
+            </a>
+            {{ race.imageContentType }}, {{ byteSize(race.image) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/race', race.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

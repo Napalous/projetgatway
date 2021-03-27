@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-fiche-medical-heading"
+        data-cy="FicheMedicalCreateUpdateHeading"
+        jhiTranslate="projetgatewayApp.microserviceproductionFicheMedical.home.createOrEditLabel"
+      >
+        Create or edit a Fiche Medical
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="projetgatewayApp.microserviceproductionFicheMedical.observation"
+            for="field_observation"
+            >Observation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="observation"
+            id="field_observation"
+            data-cy="observation"
+            formControlName="observation"
+          />
+          <div *ngIf="editForm.get('observation')!.invalid && (editForm.get('observation')!.dirty || editForm.get('observation')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('observation')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="projetgatewayApp.microserviceproductionFicheMedical.dateconsultation"
+            for="field_dateconsultation"
+            >Dateconsultation</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateconsultation"
+              data-cy="dateconsultation"
+              type="datetime-local"
+              class="form-control"
+              name="dateconsultation"
+              formControlName="dateconsultation"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('dateconsultation')!.invalid &&
+              (editForm.get('dateconsultation')!.dirty || editForm.get('dateconsultation')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dateconsultation')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('dateconsultation')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

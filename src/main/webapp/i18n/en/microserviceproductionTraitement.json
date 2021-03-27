@@ -1,0 +1,29 @@
+{
+  "projetgatewayApp": {
+    "microserviceproductionTraitement": {
+      "home": {
+        "title": "Traitements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Traitement",
+        "createOrEditLabel": "Create or edit a Traitement",
+        "notFound": "No Traitements found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Traitement {{ id }}?"
+      },
+      "detail": {
+        "title": "Traitement"
+      },
+      "id": "ID",
+      "traitement": "Traitement",
+      "datetraitement": "Datetraitement"
+    }
+  },
+  "microserviceproductionApp": {
+    "microserviceproductionTraitement": {
+      "created": "A new Traitement is created with identifier {{ param }}",
+      "updated": "A Traitement is updated with identifier {{ param }}",
+      "deleted": "A Traitement is deleted with identifier {{ param }}"
+    }
+  }
+}

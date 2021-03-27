@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-bovin-heading"
+        data-cy="BovinCreateUpdateHeading"
+        jhiTranslate="projetgatewayApp.microservicegestionBovin.home.createOrEditLabel"
+      >
+        Create or edit a Bovin
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetgatewayApp.microservicegestionBovin.numero" for="field_numero"
+            >Numero</label
+          >
+          <input type="text" class="form-control" name="numero" id="field_numero" data-cy="numero" formControlName="numero" />
+          <div *ngIf="editForm.get('numero')!.invalid && (editForm.get('numero')!.dirty || editForm.get('numero')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('numero')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetgatewayApp.microservicegestionBovin.sexe" for="field_sexe">Sexe</label>
+          <input type="text" class="form-control" name="sexe" id="field_sexe" data-cy="sexe" formControlName="sexe" />
+          <div *ngIf="editForm.get('sexe')!.invalid && (editForm.get('sexe')!.dirty || editForm.get('sexe')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('sexe')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetgatewayApp.microservicegestionBovin.datenaissance" for="field_datenaissance"
+            >Datenaissance</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_datenaissance"
+              data-cy="datenaissance"
+              type="datetime-local"
+              class="form-control"
+              name="datenaissance"
+              formControlName="datenaissance"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('datenaissance')!.invalid && (editForm.get('datenaissance')!.dirty || editForm.get('datenaissance')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('datenaissance')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('datenaissance')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetgatewayApp.microservicegestionBovin.race" for="field_race">Race</label>
+          <select class="form-control" id="field_race" data-cy="race" name="race" formControlName="race">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="raceOption.id === editForm.get('race')!.value?.id ? editForm.get('race')!.value : raceOption"
+              *ngFor="let raceOption of racesSharedCollection; trackBy: trackRaceById"
+            >
+              {{ raceOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetgatewayApp.microservicegestionBovin.typeBovin" for="field_typeBovin"
+            >Type Bovin</label
+          >
+          <select class="form-control" id="field_typeBovin" data-cy="typeBovin" name="typeBovin" formControlName="typeBovin">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="typeBovinOption.id === editForm.get('typeBovin')!.value?.id ? editForm.get('typeBovin')!.value : typeBovinOption"
+              *ngFor="let typeBovinOption of typeBovinsSharedCollection; trackBy: trackTypeBovinById"
+            >
+              {{ typeBovinOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "projetgatewayApp": {
+    "microserviceproductionProductionLait": {
+      "home": {
+        "title": "Production Laits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Production Lait",
+        "createOrEditLabel": "Create or edit a Production Lait",
+        "notFound": "No Production Laits found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Production Lait {{ id }}?"
+      },
+      "detail": {
+        "title": "Production Lait"
+      },
+      "id": "ID",
+      "quantite": "Quantite",
+      "dateproduction": "Dateproduction"
+    }
+  },
+  "microserviceproductionApp": {
+    "microserviceproductionProductionLait": {
+      "created": "A new Production Lait is created with identifier {{ param }}",
+      "updated": "A Production Lait is updated with identifier {{ param }}",
+      "deleted": "A Production Lait is deleted with identifier {{ param }}"
+    }
+  }
+}
