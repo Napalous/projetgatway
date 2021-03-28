@@ -41,6 +41,7 @@
     "nativeLanguage": "en",
     "creationTimestamp": 1616864399702,
     "entities": ["Bovin", "FicheMedical", "ProductionLait", "Race", "Traitement", "TypeBovin"],
-    "lastLiquibaseTimestamp": 1616864759000
+    "lastLiquibaseTimestamp": 1616864759000,
+    "appFolder": "projetgateway"
   }
 }
